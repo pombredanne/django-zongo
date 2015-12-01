@@ -32,3 +32,5 @@ In the template:
 	{% if presentation %}
 		{% include 'allo/default.html' %}
 	{% endif %}
+
+For a ready to use implementation check [django-alapage](https://github.com/synw/django-alapage)
