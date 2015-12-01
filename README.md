@@ -1,4 +1,4 @@
-Django Allons
+Django Allo
 ==============
 
 Responsive presentations for Django using Bootstrap. 
