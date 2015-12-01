@@ -1,0 +1,68 @@
+{% load staticfiles %}
+
+	<style>
+		{% if presentation.custom_breakpoint > 0 %}
+		@media (max-width: {{ presentation.custom_breakpoint }}px) {
+		  .visible-xss {
+		    display: block !important;
+		  }
+		  .visible-xs {
+		    display: none !important;
+		  }
+		}
+		#allo_presentation > div > div {
+			padding-left:0;
+			padding-right:0;
+		}
+		#allo_presentation img {
+			z-index:1;
+			width:100%;
+			max-width:100% !important;
+		}
+		{% endif %}
+		{% if presentation.css_lg %}{{ presentation.css_lg|safe  }}{% endif %}
+		{% if presentation.css_md %}{{ presentation.css_md|safe  }}{% endif %}
+		{% if presentation.css_sm %}{{ presentation.css_sm|safe  }}{% endif %}
+		{% if presentation.css_xs %}{{ presentation.css_xs|safe  }}{% endif %}
+		{% if presentation.css_custom %}{{ presentation.css_custom|safe  }}{% endif %}
+	</style>
+<div id="allo_presentation">
+	<div class="row visible-lg{% if not presentation.image_md %} visible-md{% endif %}{% if not presentation.image_sm %} visible-sm{% endif %}{% if not presentation.image_xs %} visible-xs{% endif %}{% if not presentation.image_custom %} visible-xxs{% endif %}">
+		<div id="allo_lg" class="col-xs-12">
+			<img src="{{ presentation.image_lg.url }}" width="{{ presentation.image_lg.width }}" alt="" />
+			{{ presentation.html_lg|safe }}
+		</div>
+	</div>
+	{% if presentation.image_md %}
+		<div class="row visible-md">
+			<div id="allo_md" class="col-md-12">
+				<img src="{{ presentation.image_md.url }}" width="{{ presentation.image_md.width }}" alt="" />
+				{{ presentation.html_md|safe }}
+			</div>
+		</div>
+	{% endif %}
+	{% if presentation.image_sm %}
+		<div class="row visible-sm">
+			<div id="allo_sm" class="col-sm-12">
+				<img src="{{ presentation.image_sm.url }}" width="{{ presentation.image_sm.width }}" alt="" />
+				{{ presentation.html_sm|safe }}
+			</div>
+		</div>
+	{% endif %}
+	{% if presentation.image_xs %}
+		<div class="row visible-xs">
+			<div id="allo_xs" class="col-xs-12">
+				<img src="{{ presentation.image_xs.url }}" width="{{ presentation.image_xs.width }}" alt="" />
+				{{ presentation.html_xs|safe }}
+			</div>
+		</div>
+	{% endif %}
+	{% if presentation.image_custom %}
+		<div class="row hidden visible-xss">
+			<div id="allo_custom" class="col-xs-12">
+				<img src="{{ presentation.image_custom.url }}" width="{{ presentation.image_custom.width }}" alt="" />
+				{{ presentation.html_custom|safe }}
+			</div>
+		</div>
+	{% endif %}
+</div>
