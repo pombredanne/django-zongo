@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 
 from django.contrib import admin
-from allo.models import FrontShow
+from zongo.models import ZongoShow
 
-@admin.register(FrontShow)
-class FrontShowAdmin(admin.ModelAdmin):
+@admin.register(ZongoShow)
+class ZongoShowAdmin(admin.ModelAdmin):
     list_display= ('title','slug',)
     prepopulated_fields = {"slug": ("title",)}
     fieldsets = (
