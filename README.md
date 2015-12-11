@@ -9,7 +9,8 @@ Install
 --------------
 
 - Clone the repository
-- Add *zongo,* to INSTALLED_APPS
+- Add `zongo,` to INSTALLED_APPS
+- Make a `zongo` directory in `media`
 
 Usage
 --------------
@@ -25,7 +26,7 @@ Your app's models.py:
 
 In the view.py:
 
-- Get the presentation in the db in some way and put in a context object as *context['presentation']* (or use *context_object_name='presentation'* in generic cb views)
+- Get the presentation from the db in some way and put in a context object as *context['presentation']* (or use *context_object_name='presentation'* in generic cb views)
 
 In the template:
 
