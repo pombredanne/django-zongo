@@ -12,12 +12,12 @@ Install
 - Add `zongo,` to INSTALLED_APPS
 - Make a `zongo` directory in `media`
 
-Usage
---------------
-
 In urls.py add the line:
 
 	url(r'^zongo/', include('zongo.urls')),
+
+Usage
+--------------
 
 Your app's models.py:
 
