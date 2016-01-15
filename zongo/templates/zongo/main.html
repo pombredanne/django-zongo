@@ -1,0 +1,28 @@
+{{ presentation.html_before|safe }}
+<div id="zongo_presentation"></div>
+{{ presentation.html_after|safe }}
+<script type="text/javascript">
+$.ajaxSetup({
+  data: {csrfmiddlewaretoken: '{{ csrf_token }}' },
+});
+
+function fire_request(container_id, url) { 
+    var container = '#'+container_id;
+	$(container).html('<div style="line-height:300px"><i class="fa fa-spinner fa-4x fa-spin"></i></div>');
+	$.ajax({
+		type: "POST",
+		dataType: "html",
+		url: url,
+		success: function (content) {
+			$(container).html(content);
+			},
+		error: function(xhr, textStatus, errorThrown) {
+	        console.log("Error: "+errorThrown+xhr.status+xhr.responseText);
+	        }
+    	});
+	}
+
+$(document).ready(function() {
+	fire_request('zongo_presentation','/zongo/{{ presentation.slug }}/');
+	});
+</script>

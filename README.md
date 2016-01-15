@@ -22,16 +22,16 @@ Your app's models.py:
 	from allo.models import ZongoShow
 	
 	class Page(FlatPage):
-	    presentation=models.ForeignKey(ZongoShow, related_name='+', null=True, blank=True, on_delete=models.SET_NULL, verbose_name=u'Presentation') 
+	    presentation=models.ForeignKey(Presentation, related_name='+', null=True, blank=True, on_delete=models.SET_NULL, verbose_name=u'Presentation') 
 
 In the view.py:
 
-- Get the presentation from the db in some way and put in a context object as *context['presentation']* (or use *context_object_name='presentation'* in generic cb views)
+- Get the presentation from the db in some way and put in a context object as `context['presentation']` (or use `context_object_name='presentation'` in generic class based views)
 
 In the template:
 
 	{% if presentation %}
-		{% include 'zongo/default.html' %}
+		{% include 'zongo/main.html' %}
 	{% endif %}
 
 For a ready to use implementation check [django-alapage](https://github.com/synw/django-alapage)

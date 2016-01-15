@@ -1,8 +1,8 @@
 {% load staticfiles %}
 
 	<style>
-		{% if presentation.custom_breakpoint > 0 %}
-		@media (max-width: {{ presentation.custom_breakpoint }}px) {
+		{% if zscreen.custom_breakpoint > 0 %}
+		@media (max-width: {{ zscreen.custom_breakpoint }}px) {
 		  .visible-xss {
 		    display: block !important;
 		  }
@@ -11,55 +11,55 @@
 		  }
 		}
 		{% endif %}
-		#allo_presentation > div > div {
+		#zongo_zscreen > div > div {
 			padding-left:0;
 			padding-right:0;
 		}
-		#allo_presentation img {
+		#zongo_zscreen img {
 			z-index:1;
 		}
-		{% if presentation.css_lg %}{{ presentation.css_lg|safe  }}{% endif %}
-		{% if presentation.css_md %}{{ presentation.css_md|safe  }}{% endif %}
-		{% if presentation.css_sm %}{{ presentation.css_sm|safe  }}{% endif %}
-		{% if presentation.css_xs %}{{ presentation.css_xs|safe  }}{% endif %}
-		{% if presentation.css_custom %}{{ presentation.css_custom|safe  }}{% endif %}
+		{% if zscreen.css_lg %}{{ zscreen.css_lg|safe  }}{% endif %}
+		{% if zscreen.css_md %}{{ zscreen.css_md|safe  }}{% endif %}
+		{% if zscreen.css_sm %}{{ zscreen.css_sm|safe  }}{% endif %}
+		{% if zscreen.css_xs %}{{ zscreen.css_xs|safe  }}{% endif %}
+		{% if zscreen.css_custom %}{{ zscreen.css_custom|safe  }}{% endif %}
 	</style>
-<div id="allo_presentation">
-	<div id="lg_bp" class="row visible-lg{% if not presentation.image_md %} visible-md{% endif %}{% if not presentation.image_sm %} visible-sm{% endif %}{% if not presentation.image_xs %} visible-xs{% endif %}{% if not presentation.image_custom %} visible-xxs{% endif %}">
+<div id="zongo_zscreen">
+	<div id="lg_bp" class="row visible-lg{% if not zscreen.image_md %} visible-md{% endif %}">
 		<div class="col-xs-12">
-			<img src="{{ presentation.image_lg.url }}" class="img-responsive" width="{{ presentation.image_lg.width }}" alt="" />
-			<div id="presentation_text_lg" >{{ presentation.html_lg|safe }}</div>
+			<img src="{{ zscreen.image_lg.url }}" class="img-responsive" width="{{ zscreen.image_lg.width }}" alt="" />
+			<div id="zscreen_text_lg" >{{ zscreen.html_lg|safe }}</div>
 		</div>
 	</div>
-	{% if presentation.image_md %}
-		<div id="md_bp" class="row visible-md">
+	{% if zscreen.image_md %}
+		<div id="md_bp" class="row visible-md{% if not zscreen.image_sm %} visible-sm{% endif %}">
 			<div class="col-md-12">
-				<img src="{{ presentation.image_md.url }}" class="img-responsive" width="{{ presentation.image_md.width }}" alt="" />
-				<div id="presentation_text_md">{{ presentation.html_md|safe }}</div>
+				<img src="{{ zscreen.image_md.url }}" class="img-responsive" width="{{ zscreen.image_md.width }}" alt="" />
+				<div id="zscreen_text_md">{{ zscreen.html_md|safe }}</div>
 			</div>
 		</div>
 	{% endif %}
-	{% if presentation.image_sm %}
-		<div id="sm_bp" class="row visible-sm">
+	{% if zscreen.image_sm %}
+		<div id="sm_bp" class="row visible-sm{% if not zscreen.image_xs %} visible-xs{% endif %}">
 			<div class="col-sm-12">
-				<img src="{{ presentation.image_sm.url }}" class="img-responsive" width="{{ presentation.image_sm.width }}" alt="" />
-				<div id="presentation_text_sm">{{ presentation.html_sm|safe }}</div>
+				<img src="{{ zscreen.image_sm.url }}" class="img-responsive" width="{{ zscreen.image_sm.width }}" alt="" />
+				<div id="zscreen_text_sm">{{ zscreen.html_sm|safe }}</div>
 			</div>
 		</div>
 	{% endif %}
-	{% if presentation.image_xs %}
-		<div id="xs_bp" class="row visible-xs">
+	{% if zscreen.image_xs %}
+		<div id="xs_bp" class="row visible-xs{% if not zscreen.image_xxs %} visible-xxs{% endif %}">
 			<div class="col-xs-12">
-				<img src="{{ presentation.image_xs.url }}" class="img-responsive" width="{{ presentation.image_xs.width }}" alt="" />
-				<div id="presentation_text_xs">{{ presentation.html_xs|safe }}</div>
+				<img src="{{ zscreen.image_xs.url }}" class="img-responsive" width="{{ zscreen.image_xs.width }}" alt="" />
+				<div id="zscreen_text_xs">{{ zscreen.html_xs|safe }}</div>
 			</div>
 		</div>
 	{% endif %}
-	{% if presentation.image_custom %}
-		<div class="row hidden visible-xss">
+	{% if zscreen.image_xxs%}
+		<div id="xxs_bp" class="row hidden visible-xss">
 			<div class="col-xs-12">
-				<img src="{{ presentation.image_custom.url }}" class="img-responsive" width="{{ presentation.image_custom.width }}" alt="" />
-				<div id="presentation_text_custom">{{ presentation.html_custom|safe }}</div>
+				<img src="{{ zscreen.image_xxs.url }}" class="img-responsive" width="{{ zscreen.image_xxs.width }}" alt="" />
+				<div id="zscreen_text_custom">{{ zscreen.html_custom|safe }}</div>
 			</div>
 		</div>
 	{% endif %}

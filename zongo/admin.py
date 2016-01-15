@@ -1,15 +1,18 @@
 # -*- coding: utf-8 -*-
 
 from django.contrib import admin
-from zongo.models import ZongoShow
+from django.utils.translation import ugettext_lazy as _
+from zongo.models import Presentation, Screen
+  
 
-@admin.register(ZongoShow)
-class ZongoShowAdmin(admin.ModelAdmin):
-    list_display= ('title','slug',)
+@admin.register(Screen)
+class ScreenAdmin(admin.ModelAdmin):
+    save_as = True
+    list_display= ('title','get_presentation_name','order')
     prepopulated_fields = {"slug": ("title",)}
     fieldsets = (
         (None, {
-            'fields': ('title','slug',)
+            'fields': ('title','slug','presentation','order')
         }),
         ('Lg', {
             'classes': ('collapse',),
@@ -29,6 +32,17 @@ class ZongoShowAdmin(admin.ModelAdmin):
         }),
         ('Custom xxs', {
             'classes': ('collapse',),
-            'fields': ('custom_breakpoint','image_custom','html_custom','css_custom')
+            'fields': ('custom_breakpoint','image_xxs','html_xxs','css_xxs')
         })
     )
+    
+    def get_presentation_name(self, obj):
+        return obj.presentation.title
+    
+    get_presentation_name.admin_order_field  = 'presentation'
+    get_presentation_name.short_description = _(u'Presentation')
+
+@admin.register(Presentation)
+class PresentationAdmin(admin.ModelAdmin):
+    pass
+    
