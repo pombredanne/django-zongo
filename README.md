@@ -19,7 +19,7 @@ Your app's models.py:
 
 	from django.db import models
 	from django.contrib.flatpages.models import FlatPage
-	from allo.models import ZongoShow
+	from allo.models import Presentation
 	
 	class Page(FlatPage):
 	    presentation=models.ForeignKey(Presentation, related_name='+', null=True, blank=True, on_delete=models.SET_NULL, verbose_name=u'Presentation') 
