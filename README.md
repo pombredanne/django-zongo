@@ -1,7 +1,7 @@
 Django Zongo
 ==============
 
-Responsive presentations for Django using Bootstrap. 
+Fast and responsive presentations for Django using ajax and Bootstrap. 
 
 A presentation is an image + html + css that match the Bootstrap breakpoints. You can provide a different presentation for every Bootstrap css breakpoints (+ 1 custom xxs breakpoint available).
 
