@@ -26,14 +26,14 @@
 	</style>
 <div id="zongo_zscreen">
 	<div id="lg_bp" class="row visible-lg{% if not zscreen.image_md %} visible-md{% endif %}">
-		<div class="col-xs-12">
+		<div class="col-xs-12" style="max-height:{{ zscreen.image_lg.height }}px">
 			<img src="{{ zscreen.image_lg.url }}" class="img-responsive" width="{{ zscreen.image_lg.width }}" alt="" />
 			<div id="zscreen_text_lg" >{{ zscreen.html_lg|safe }}</div>
 		</div>
 	</div>
 	{% if zscreen.image_md %}
 		<div id="md_bp" class="row visible-md{% if not zscreen.image_sm %} visible-sm{% endif %}">
-			<div class="col-md-12">
+			<div class="col-md-12" style="max-height:{{ zscreen.image_md.height }}px">
 				<img src="{{ zscreen.image_md.url }}" class="img-responsive" width="{{ zscreen.image_md.width }}" alt="" />
 				<div id="zscreen_text_md">{{ zscreen.html_md|safe }}</div>
 			</div>
@@ -41,7 +41,7 @@
 	{% endif %}
 	{% if zscreen.image_sm %}
 		<div id="sm_bp" class="row visible-sm{% if not zscreen.image_xs %} visible-xs{% endif %}">
-			<div class="col-sm-12">
+			<div class="col-sm-12" style="max-height:{{ zscreen.image_sm.height }}px">
 				<img src="{{ zscreen.image_sm.url }}" class="img-responsive" width="{{ zscreen.image_sm.width }}" alt="" />
 				<div id="zscreen_text_sm">{{ zscreen.html_sm|safe }}</div>
 			</div>
@@ -49,7 +49,7 @@
 	{% endif %}
 	{% if zscreen.image_xs %}
 		<div id="xs_bp" class="row visible-xs{% if not zscreen.image_xxs %} visible-xxs{% endif %}">
-			<div class="col-xs-12">
+			<div class="col-xs-12 style="max-height:{{ zscreen.image_xs.height }}px"">
 				<img src="{{ zscreen.image_xs.url }}" class="img-responsive" width="{{ zscreen.image_xs.width }}" alt="" />
 				<div id="zscreen_text_xs">{{ zscreen.html_xs|safe }}</div>
 			</div>
@@ -57,7 +57,7 @@
 	{% endif %}
 	{% if zscreen.image_xxs%}
 		<div id="xxs_bp" class="row hidden visible-xss">
-			<div class="col-xs-12">
+			<div class="col-xs-12" style="max-height:{{ zscreen.image_xxs.height }}px">
 				<img src="{{ zscreen.image_xxs.url }}" class="img-responsive" width="{{ zscreen.image_xxs.width }}" alt="" />
 				<div id="zscreen_text_custom">{{ zscreen.html_custom|safe }}</div>
 			</div>

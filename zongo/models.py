@@ -43,7 +43,7 @@ class Screen(models.Model):
     css_sm = models.TextField(null=True, blank=True, verbose_name=_(u'Css sm'), help_text=_(u'Use the "sm_bp" css id to select the html in this block'))
     css_xs = models.TextField(null=True, blank=True, verbose_name=_(u'Css xs'), help_text=_(u'Use the "xs_bp" css id to select the html in this block'))
     css_xxs = models.TextField(null=True, blank=True, verbose_name=_(u'Css xxs'), help_text=_(u'Use the "xxs_bp" css id to select the html in this block'))
-    custom_breakpoint = models.PositiveSmallIntegerField(null=True, blank=True, verbose_name=_(u'Custom xxs breakpoint'), help_text=_(u'Value for breakpoint in pixels'))
+    custom_breakpoint = models.PositiveSmallIntegerField(null=True, blank=True, verbose_name=_(u'Custom xxs breakpoint'), default=360, help_text=_(u'Value for breakpoint in pixels'))
 
     
     class Meta:

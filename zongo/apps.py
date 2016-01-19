@@ -3,4 +3,4 @@ from django.apps import AppConfig
 
 class ZongoConfig(AppConfig):
     name = "zongo"
-    verbose_name = _(u"Presentations")
+    verbose_name = _("Presentations")
