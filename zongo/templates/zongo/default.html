@@ -3,7 +3,7 @@
 	<style>
 		{% if zscreen.custom_breakpoint > 0 %}
 		@media (max-width: {{ zscreen.custom_breakpoint }}px) {
-		  .visible-xss {
+		  .visible-xxs {
 		    display: block !important;
 		  }
 		  #lg_bp, #md_bp, #sm_bp, #xs_bp {
@@ -56,10 +56,10 @@
 		</div>
 	{% endif %}
 	{% if zscreen.image_xxs%}
-		<div id="xxs_bp" class="row hidden visible-xss">
+		<div id="xxs_bp" class="row hidden visible-xxs">
 			<div class="col-xs-12" style="max-height:{{ zscreen.image_xxs.height }}px">
 				<img src="{{ zscreen.image_xxs.url }}" class="img-responsive" width="{{ zscreen.image_xxs.width }}" alt="" />
-				<div id="zscreen_text_custom">{{ zscreen.html_custom|safe }}</div>
+				<div id="zscreen_text_custom">{{ zscreen.html_xxs|safe }}</div>
 			</div>
 		</div>
 	{% endif %}
